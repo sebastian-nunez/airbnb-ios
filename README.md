@@ -16,9 +16,9 @@ This repository contains a mobile app built with SwiftUI, replicating the Airbnb
 ## Technologies Used
 
 - **SwiftUI:** Modern declarative UI framework for building the app's user interface.
-- **Combine Framework:** Utilized for handling asynchronous operations and data flow.
-- **MapKit:** Integrated for displaying property locations on the map.
-- **Core Data:** Local storage for caching property data and user information.
+- (TBA) **Combine Framework:** Utilized for handling asynchronous operations and data flow.
+- (TBA) **MapKit:** Integrated for displaying property locations on the map.
+- (DROPPED) **Core Data:** Local storage for caching property data and user information.
 
 ## Getting Started
 
