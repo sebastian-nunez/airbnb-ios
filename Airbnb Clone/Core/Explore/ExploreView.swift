@@ -13,12 +13,9 @@ struct ExploreView: View {
             ScrollView(.vertical) {
                 LazyVStack(spacing: 32) {
                     ForEach(1 ... 20, id: \.self) { _ in
-                        Rectangle()
-                            .frame(height: 400)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                        ListingItemView()
                     }
                 }
-                .padding()
             }
         }
     }

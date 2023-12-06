@@ -12,7 +12,7 @@ struct ListingItemView: View {
         VStack(spacing: 8) {
             // images
             Rectangle()
-                .frame(width: UIScreen.main.bounds.width - 20, height: 320)
+                .frame(height: 320)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
             // listing info
@@ -47,7 +47,7 @@ struct ListingItemView: View {
             }
             .font(.footnote)
         }
-        .padding()
+        .padding(.horizontal)
     }
 }
 
