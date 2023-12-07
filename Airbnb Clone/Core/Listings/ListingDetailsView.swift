@@ -51,6 +51,7 @@ struct ListingDetailsView: View {
             // map view
             ListingMapView()
         }
+        .ignoresSafeArea() // make images span to the top of the screen
         .padding(.bottom, 64) // push map above overlay
         .overlay(alignment: .bottom) { // bottom overlay
             ReserveListingOverlayView()
