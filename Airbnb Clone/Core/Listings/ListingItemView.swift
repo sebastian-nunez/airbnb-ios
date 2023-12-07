@@ -35,6 +35,7 @@ struct ListingItemView: View {
             HStack(alignment: .top) {
                 VStack(alignment: .leading) {
                     Text("Miami, Florida")
+                        .foregroundStyle(.black)
                         .fontWeight(.bold)
                     
                     Text("12 mi away")
@@ -48,7 +49,7 @@ struct ListingItemView: View {
                             .fontWeight(.semibold)
                         
                         Text("night")
-                    }
+                    }.foregroundStyle(.black)
                 }
                 
                 Spacer()
@@ -59,7 +60,7 @@ struct ListingItemView: View {
                     
                     Text("4.86")
                         .fontWeight(.bold)
-                }
+                }.foregroundStyle(.black)
             }
             .font(.footnote)
         }
