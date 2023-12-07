@@ -30,7 +30,12 @@ struct ListingDetailsView: View {
                          numBeds: 4,
                          numBaths: 3)
 
-            // perks
+            Divider()
+
+            // listing features
+            ListingFeaturesView() // TODO: create data model
+
+            Divider()
 
             // amenities
         }
@@ -41,7 +46,7 @@ struct ListingDetailsView: View {
     ListingDetailsView()
 }
 
-struct PropertyDetailsView: View {
+private struct PropertyDetailsView: View {
     var title: String
     var rating: Double
     var numReviews: Int
@@ -75,11 +80,11 @@ struct PropertyDetailsView: View {
             .font(.caption)
         }
         .frame(maxWidth: .infinity, alignment: .leading) // align left
-        .padding(.leading)
+        .padding()
     }
 }
 
-struct HostInfoView: View {
+private struct HostInfoView: View {
     var headline: String
     var hostName: String
     var hostImage: String
@@ -116,7 +121,33 @@ struct HostInfoView: View {
                 .scaledToFill()
                 .frame(width: 64, height: 64)
                 .clipShape(Circle())
+        }
+        .padding()
+    }
+}
 
-        }.padding(.horizontal)
+private struct ListingFeaturesView: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            ForEach(1 ... 2, id: \.self) { _ in
+                // feature
+                HStack(spacing: 12) {
+                    Image(systemName: "medal")
+
+                    VStack(alignment: .leading) {
+                        Text("Self check-in")
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+
+                        Text("Check yourself in with the keypad")
+                            .font(.caption)
+                            .foregroundStyle(.gray)
+                    }
+
+                    Spacer()
+                }
+            }
+        }
+        .padding()
     }
 }
