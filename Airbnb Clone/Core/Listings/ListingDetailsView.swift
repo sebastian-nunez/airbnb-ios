@@ -43,6 +43,9 @@ struct ListingDetailsView: View {
             Divider()
 
             // amenities
+            ListingAmenitiesView()
+
+            Divider()
         }
     }
 }
@@ -162,13 +165,13 @@ private struct RoomDetailsView: View {
         VStack(alignment: .leading) {
             Text("Where you'll sleep")
                 .font(.headline)
-            
+
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
                     ForEach(1 ..< 5, id: \.self) { bedroom in
                         VStack(alignment: .leading, spacing: 8) {
                             Image(systemName: "bed.double")
-                            
+
                             Text("Bedroom \(bedroom)")
                                 .font(.caption2)
                                 .fontWeight(.semibold)
@@ -183,6 +186,28 @@ private struct RoomDetailsView: View {
                 }
             }
             .scrollTargetBehavior(.paging) // "locking" effect
+        }
+        .padding()
+    }
+}
+
+private struct ListingAmenitiesView: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("What this place offers")
+                .font(.headline)
+
+            ForEach(1 ..< 5, id: \.self) { _ in
+                HStack {
+                    Image(systemName: "wifi")
+                        .frame(width: 32)
+
+                    Text("Wifi")
+                        .font(.footnote)
+
+                    Spacer()
+                }
+            }
         }
         .padding()
     }
