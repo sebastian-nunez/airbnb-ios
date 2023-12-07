@@ -51,6 +51,11 @@ struct ListingDetailsView: View {
             // map view
             ListingMapView()
         }
+        .padding(.bottom, 64) // push map above overlay
+        .overlay(alignment: .bottom) { // bottom overlay
+            ReserveListingOverlayView()
+        }
+        .padding(.bottom)
     }
 }
 
@@ -180,9 +185,9 @@ private struct RoomDetailsView: View {
                                 .font(.caption2)
                                 .fontWeight(.semibold)
                         }
-                        .frame(width: 132, height: 100)
+                        .frame(width: 150, height: 100)
                         .overlay {
-                            RoundedRectangle(cornerRadius: 10)
+                            RoundedRectangle(cornerRadius: 12)
                                 .stroke(lineWidth: 0.5)
                                 .foregroundStyle(.gray)
                         }
@@ -225,8 +230,51 @@ private struct ListingMapView: View {
 
             Map()
                 .frame(height: 200)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .clipShape(RoundedRectangle(cornerRadius: 12))
         }
         .padding()
+    }
+}
+
+private struct ReserveListingOverlayView: View {
+    var body: some View {
+        VStack {
+            Divider()
+                .padding(.bottom)
+
+            HStack {
+                // reservation details
+                VStack(alignment: .leading) {
+                    Text("$500")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+
+                    Text("Total before taxes")
+                        .font(.footnote)
+
+                    Text("Oct 15 - Oct 20")
+                        .font(.footnote)
+                        .underline()
+                        .fontWeight(.semibold)
+                }
+
+                Spacer()
+
+                // reserve button
+                Button {
+                    print("DEBUG: Reserving listing...")
+                } label: {
+                    Text("Reserve")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.white)
+                        .frame(width: 140, height: 40)
+                        .background(.pink)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                }
+            }
+        }
+        .padding(.horizontal)
+        .background(.white)
     }
 }
