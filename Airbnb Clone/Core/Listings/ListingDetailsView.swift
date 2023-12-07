@@ -37,6 +37,11 @@ struct ListingDetailsView: View {
 
             Divider()
 
+            // room details
+            RoomDetailsView()
+
+            Divider()
+
             // amenities
         }
     }
@@ -147,6 +152,37 @@ private struct ListingFeaturesView: View {
                     Spacer()
                 }
             }
+        }
+        .padding()
+    }
+}
+
+private struct RoomDetailsView: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Where you'll sleep")
+                .font(.headline)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 16) {
+                    ForEach(1 ..< 5, id: \.self) { bedroom in
+                        VStack(alignment: .leading, spacing: 8) {
+                            Image(systemName: "bed.double")
+                            
+                            Text("Bedroom \(bedroom)")
+                                .font(.caption2)
+                                .fontWeight(.semibold)
+                        }
+                        .frame(width: 132, height: 100)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 0.5)
+                                .foregroundStyle(.gray)
+                        }
+                    }
+                }
+            }
+            .scrollTargetBehavior(.paging) // "locking" effect
         }
         .padding()
     }
