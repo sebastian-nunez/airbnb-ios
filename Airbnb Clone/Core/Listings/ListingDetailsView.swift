@@ -12,7 +12,24 @@ struct ListingDetailsView: View {
     var body: some View {
         ScrollView(.vertical) {
             // images
-            ImageCarouselView(images: mockListingImages, cornerRadius: 0)
+            ZStack(alignment: .topLeading) {
+                ImageCarouselView(images: mockListingImages, cornerRadius: 0)
+
+                // back button
+                Button {
+                    print("DEBUG: Going back to 'Explore View'...")
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundStyle(.black)
+                        .frame(width: 45, height: 45)
+                        .background(
+                            Circle()
+                                .fill(.white)
+                        )
+                        .padding(.leading, 32)
+                        .padding(.top, 64)
+                }
+            }
 
             // property details
             PropertyDetailsView(title: "Miami Villa",
