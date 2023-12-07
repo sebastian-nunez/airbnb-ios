@@ -5,6 +5,7 @@
 //  Created by Sebastian on 12/7/23.
 //
 
+import MapKit
 import SwiftUI
 
 struct ListingDetailsView: View {
@@ -38,14 +39,17 @@ struct ListingDetailsView: View {
             Divider()
 
             // room details
-            RoomDetailsView()
+            RoomDetailsView() // TODO: create data model & link to rooms
 
             Divider()
 
             // amenities
-            ListingAmenitiesView()
+            ListingAmenitiesView() // TODO: create data model
 
             Divider()
+
+            // map view
+            ListingMapView()
         }
     }
 }
@@ -162,7 +166,7 @@ private struct ListingFeaturesView: View {
 
 private struct RoomDetailsView: View {
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             Text("Where you'll sleep")
                 .font(.headline)
 
@@ -208,6 +212,20 @@ private struct ListingAmenitiesView: View {
                     Spacer()
                 }
             }
+        }
+        .padding()
+    }
+}
+
+private struct ListingMapView: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Where you'll be")
+                .font(.headline)
+
+            Map()
+                .frame(height: 200)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
         }
         .padding()
     }
