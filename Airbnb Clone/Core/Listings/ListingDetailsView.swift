@@ -9,6 +9,8 @@ import MapKit
 import SwiftUI
 
 struct ListingDetailsView: View {
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
         ScrollView(.vertical) {
             // images
@@ -17,7 +19,7 @@ struct ListingDetailsView: View {
 
                 // back button
                 Button {
-                    print("DEBUG: Going back to 'Explore View'...")
+                    dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
                         .foregroundStyle(.black)
