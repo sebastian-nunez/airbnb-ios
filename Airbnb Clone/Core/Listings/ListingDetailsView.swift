@@ -56,7 +56,6 @@ struct ListingDetailsView: View {
         .overlay(alignment: .bottom) { // bottom overlay
             ReserveListingOverlayView()
         }
-        .padding(.bottom)
     }
 }
 
@@ -276,6 +275,7 @@ private struct ReserveListingOverlayView: View {
             }
         }
         .padding(.horizontal)
+        .padding(.bottom)
         .background(.white)
     }
 }
