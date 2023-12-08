@@ -7,12 +7,19 @@
 
 import SwiftUI
 
+enum DestinationSearchOptions {
+    case location
+    case dates
+    case guests
+}
+
 struct DestinationSearchView: View {
     // bindings
     @Binding var showView: Bool
 
     // state
     @State private var destinationText = ""
+    @State private var selectedOption: DestinationSearchOptions = .location
 
     var body: some View {
         VStack {
@@ -20,13 +27,28 @@ struct DestinationSearchView: View {
             NavigationControlsView(showView: $showView)
 
             // location search
-            LocationSearchView(text: $destinationText)
+            LocationSearchView(text: $destinationText, selectedOption: selectedOption)
+                .onTapGesture {
+                    withAnimation(.snappy) {
+                        selectedOption = .location
+                    }
+                }
 
             // date selection
-            CollapsableCardView(title: "When", description: "Add dates")
+            CollapsedCardView(title: "When", description: "Add dates")
+                .onTapGesture {
+                    withAnimation(.snappy) {
+                        selectedOption = .dates
+                    }
+                }
 
             // guest selection
-            CollapsableCardView(title: "Who", description: "Add guests")
+            CollapsedCardView(title: "Who", description: "Add guests")
+                .onTapGesture {
+                    withAnimation(.snappy) {
+                        selectedOption = .guests
+                    }
+                }
 
             Spacer()
         }
@@ -41,27 +63,33 @@ struct DestinationSearchView: View {
 private struct LocationSearchView: View {
     @Binding var text: String
 
+    var selectedOption: DestinationSearchOptions
+
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Where to?")
-                .font(.title2)
-                .fontWeight(.semibold)
+        if selectedOption == .location {
+            VStack(alignment: .leading) {
+                Text("Where to?")
+                    .font(.title2)
+                    .fontWeight(.semibold)
 
-            HStack {
-                Image(systemName: "magnifyingglass")
-                    .imageScale(.medium)
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .imageScale(.medium)
 
-                TextField("Search destinations...", text: $text)
-                    .font(.subheadline)
+                    TextField("Search destinations...", text: $text)
+                        .font(.subheadline)
+                }
+                .padding()
+                .overlay {
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(lineWidth: 0.5)
+                        .foregroundStyle(Color(.systemGray4))
+                }
             }
-            .padding()
-            .overlay {
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(lineWidth: 0.5)
-                    .foregroundStyle(Color(.systemGray4))
-            }
+            .cardStyle()
+        } else {
+            CollapsedCardView(title: "Where", description: "Add destination")
         }
-        .cardStyle()
     }
 }
 
@@ -98,7 +126,7 @@ private struct NavigationControlsView: View {
     }
 }
 
-private struct CollapsableCardView: View {
+private struct CollapsedCardView: View {
     var title: String
     var description: String
 
