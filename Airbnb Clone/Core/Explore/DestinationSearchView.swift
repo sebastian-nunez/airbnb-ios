@@ -23,38 +23,14 @@ struct DestinationSearchView: View {
             LocationSearchView(text: $destinationText)
 
             // date selection
-            VStack {
-                HStack {
-                    Text("When")
-                        .foregroundStyle(.gray)
-
-                    Spacer()
-
-                    Text("Add dates")
-                }
-                .font(.headline)
-                .fontWeight(.semibold)
-            }
-            .cardStyle()
+            CollapsableCardView(title: "When", description: "Add dates")
 
             // guest selection
-            VStack {
-                HStack {
-                    Text("Who")
-                        .foregroundStyle(.gray)
-
-                    Spacer()
-
-                    Text("Add guests")
-                }
-                .font(.headline)
-                .fontWeight(.semibold)
-            }
-            .cardStyle()
+            CollapsableCardView(title: "Who", description: "Add guests")
 
             Spacer()
         }
-        .background(Color(.systemGray6))
+        .background(Color(.systemGray5))
     }
 }
 
@@ -89,7 +65,7 @@ private struct LocationSearchView: View {
     }
 }
 
-struct NavigationControlsView: View {
+private struct NavigationControlsView: View {
     @Binding var showView: Bool
 
     var body: some View {
@@ -104,7 +80,7 @@ struct NavigationControlsView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 32, height: 32)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.foreground)
             }
 
             Spacer()
@@ -113,11 +89,32 @@ struct NavigationControlsView: View {
                 print("DEBUG: clearing the search inputs...")
             } label: {
                 Text("Clear")
-                    .foregroundStyle(.black)
                     .fontWeight(.semibold)
             }
+            .foregroundStyle(.foreground)
         }
         .padding(.horizontal)
         .padding(.bottom, 16)
+    }
+}
+
+private struct CollapsableCardView: View {
+    var title: String
+    var description: String
+
+    var body: some View {
+        VStack {
+            HStack {
+                Text(title)
+                    .foregroundStyle(.gray)
+
+                Spacer()
+
+                Text(description)
+            }
+            .font(.headline)
+            .fontWeight(.semibold)
+        }
+        .cardStyle()
     }
 }
