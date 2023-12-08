@@ -40,7 +40,7 @@ struct SearchFilterBarView: View {
             Capsule()
                 .stroke(lineWidth: 0.5)
                 .foregroundStyle(Color(.systemGray3))
-                .shadow(color: .black.opacity(0.2), radius: 2)
+                .dropShadow()
         }
         .padding()
     }
