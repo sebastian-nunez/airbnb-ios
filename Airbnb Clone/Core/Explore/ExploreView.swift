@@ -38,6 +38,7 @@ struct ExploreView: View {
                 }
             }
         }
+        .tint(.primary)
     }
 }
 

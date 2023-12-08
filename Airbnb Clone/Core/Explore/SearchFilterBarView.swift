@@ -33,11 +33,14 @@ struct SearchFilterBarView: View {
                 print("DEBUG: opening the filters...")
             } label: {
                 Image(systemName: "line.3.horizontal.decrease.circle")
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.foreground)
             }
         }
+
         .padding(.horizontal)
         .padding(.vertical, 10)
+        .background(.foregroundAccent)
+        .clipShape(Capsule())
         .overlay {
             Capsule()
                 .stroke(lineWidth: 0.5)

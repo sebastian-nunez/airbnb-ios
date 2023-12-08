@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 extension View {
-    func cardStyle(in color: Color = .white) -> some View {
+    func cardStyle(in color: Color = .foregroundAccent) -> some View {
         return modifier(Card(bgColor: color))
     }
 

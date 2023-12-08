@@ -22,11 +22,11 @@ struct ListingDetailsView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
-                        .foregroundStyle(.black)
+                        .foregroundStyle(.foreground)
                         .frame(width: 45, height: 45)
                         .background(
                             Circle()
-                                .fill(.white)
+                                .fill(.foregroundAccent)
                         )
                         .padding(.leading, 32)
                         .padding(.top, 64)
@@ -108,7 +108,7 @@ private struct PropertyDetailsView: View {
                         .fontWeight(.semibold)
                         .underline()
                 }
-                .foregroundStyle(.black)
+                .foregroundStyle(.foreground)
 
                 // location
                 Text(location)
@@ -205,6 +205,7 @@ private struct RoomDetailsView: View {
                                 .fontWeight(.semibold)
                         }
                         .frame(width: 150, height: 100)
+                        .background(.foregroundAccent)
                         .overlay {
                             RoundedRectangle(cornerRadius: 12)
                                 .stroke(lineWidth: 0.5)
@@ -295,6 +296,6 @@ private struct ReserveListingOverlayView: View {
         }
         .padding(.horizontal)
         .padding(.bottom)
-        .background(.white)
+        .background(.background)
     }
 }

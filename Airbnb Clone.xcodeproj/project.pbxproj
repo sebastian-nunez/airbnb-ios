@@ -18,8 +18,8 @@
 		9E501AC32B2195FE00745DDF /* ImageCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501AC22B2195FE00745DDF /* ImageCarouselView.swift */; };
 		9E501AC52B237EB800745DDF /* DestinationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501AC42B237EB800745DDF /* DestinationSearchView.swift */; };
 		9E501AC72B238ECE00745DDF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501AC62B238ECE00745DDF /* View.swift */; };
-		9E501ACA2B238F9B00745DDF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501AC92B238F9B00745DDF /* Card.swift */; };
 		9E501ACC2B23909E00745DDF /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501ACB2B23909E00745DDF /* DropShadow.swift */; };
+		9E501AD02B23A96900745DDF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501ACF2B23A96900745DDF /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +35,8 @@
 		9E501AC22B2195FE00745DDF /* ImageCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarouselView.swift; sourceTree = "<group>"; };
 		9E501AC42B237EB800745DDF /* DestinationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSearchView.swift; sourceTree = "<group>"; };
 		9E501AC62B238ECE00745DDF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
-		9E501AC92B238F9B00745DDF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		9E501ACB2B23909E00745DDF /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
+		9E501ACF2B23A96900745DDF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,8 +200,8 @@
 		9E501AC82B238F8100745DDF /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				9E501AC92B238F9B00745DDF /* Card.swift */,
 				9E501ACB2B23909E00745DDF /* DropShadow.swift */,
+				9E501ACF2B23A96900745DDF /* Card.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -284,9 +284,9 @@
 				9E501AC02B21945000745DDF /* mocks.swift in Sources */,
 				9E501AC72B238ECE00745DDF /* View.swift in Sources */,
 				9E501A982B201ACC00745DDF /* Airbnb_CloneApp.swift in Sources */,
-				9E501ACA2B238F9B00745DDF /* Card.swift in Sources */,
 				9E501AC32B2195FE00745DDF /* ImageCarouselView.swift in Sources */,
 				9E501ABC2B21859000745DDF /* SearchFilterBarView.swift in Sources */,
+				9E501AD02B23A96900745DDF /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
