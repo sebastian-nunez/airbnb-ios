@@ -109,8 +109,13 @@ struct NavigationControlsView: View {
 
             Spacer()
 
-            Text("Clear")
-                .fontWeight(.semibold)
+            Button {
+                print("DEBUG: clearing the search inputs...")
+            } label: {
+                Text("Clear")
+                    .foregroundStyle(.black)
+                    .fontWeight(.semibold)
+            }
         }
         .padding(.horizontal)
         .padding(.bottom, 16)

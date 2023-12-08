@@ -29,7 +29,9 @@ struct SearchFilterBarView: View {
             Spacer()
 
             // filter
-            Button {} label: {
+            Button {
+                print("DEBUG: opening the filters...")
+            } label: {
                 Image(systemName: "line.3.horizontal.decrease.circle")
                     .foregroundStyle(.black)
             }
