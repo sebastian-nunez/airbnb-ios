@@ -17,6 +17,9 @@
 		9E501AC02B21945000745DDF /* mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501ABF2B21945000745DDF /* mocks.swift */; };
 		9E501AC32B2195FE00745DDF /* ImageCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501AC22B2195FE00745DDF /* ImageCarouselView.swift */; };
 		9E501AC52B237EB800745DDF /* DestinationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501AC42B237EB800745DDF /* DestinationSearchView.swift */; };
+		9E501AC72B238ECE00745DDF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501AC62B238ECE00745DDF /* View.swift */; };
+		9E501ACA2B238F9B00745DDF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501AC92B238F9B00745DDF /* Card.swift */; };
+		9E501ACC2B23909E00745DDF /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501ACB2B23909E00745DDF /* DropShadow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		9E501ABF2B21945000745DDF /* mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mocks.swift; sourceTree = "<group>"; };
 		9E501AC22B2195FE00745DDF /* ImageCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarouselView.swift; sourceTree = "<group>"; };
 		9E501AC42B237EB800745DDF /* DestinationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSearchView.swift; sourceTree = "<group>"; };
+		9E501AC62B238ECE00745DDF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		9E501AC92B238F9B00745DDF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		9E501ACB2B23909E00745DDF /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,7 @@
 				9E501AA62B201BE300745DDF /* Core */,
 				9E501AA82B201BFB00745DDF /* Extensions */,
 				9E501AA92B201C0400745DDF /* Models */,
+				9E501AC82B238F8100745DDF /* Styles */,
 				9E501AA72B201BF300745DDF /* Utils */,
 				9E501A9B2B201AD300745DDF /* Assets.xcassets */,
 				9E501A9D2B201AD300745DDF /* Preview Content */,
@@ -116,6 +123,7 @@
 		9E501AA82B201BFB00745DDF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9E501AC62B238ECE00745DDF /* View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -189,6 +197,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		9E501AC82B238F8100745DDF /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				9E501AC92B238F9B00745DDF /* Card.swift */,
+				9E501ACB2B23909E00745DDF /* DropShadow.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -259,12 +276,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E501ACC2B23909E00745DDF /* DropShadow.swift in Sources */,
 				9E501ABE2B2193B500745DDF /* ListingDetailsView.swift in Sources */,
 				9E501AC52B237EB800745DDF /* DestinationSearchView.swift in Sources */,
 				9E501ABA2B201FF600745DDF /* ListingItemView.swift in Sources */,
 				9E501AB42B201E9300745DDF /* ExploreView.swift in Sources */,
 				9E501AC02B21945000745DDF /* mocks.swift in Sources */,
+				9E501AC72B238ECE00745DDF /* View.swift in Sources */,
 				9E501A982B201ACC00745DDF /* Airbnb_CloneApp.swift in Sources */,
+				9E501ACA2B238F9B00745DDF /* Card.swift in Sources */,
 				9E501AC32B2195FE00745DDF /* ImageCarouselView.swift in Sources */,
 				9E501ABC2B21859000745DDF /* SearchFilterBarView.swift in Sources */,
 			);
