@@ -35,20 +35,32 @@ struct DestinationSearchView: View {
                 }
 
             // date selection
-            CollapsedCardView(title: "When", description: "Add dates")
-                .onTapGesture {
-                    withAnimation(.snappy) {
-                        selectedOption = .dates
-                    }
+            VStack {
+                if selectedOption == .dates {
+                    Text("Select Dates")
+                } else {
+                    CollapsedCardView(title: "When", description: "Add dates")
                 }
+            }
+            .onTapGesture {
+                withAnimation(.snappy) {
+                    selectedOption = .dates
+                }
+            }
 
             // guest selection
-            CollapsedCardView(title: "Who", description: "Add guests")
-                .onTapGesture {
-                    withAnimation(.snappy) {
-                        selectedOption = .guests
-                    }
+            VStack {
+                if selectedOption == .guests {
+                    Text("Select Guests")
+                } else {
+                    CollapsedCardView(title: "When", description: "Add guests")
                 }
+            }
+            .onTapGesture {
+                withAnimation(.snappy) {
+                    selectedOption = .guests
+                }
+            }
 
             Spacer()
         }
