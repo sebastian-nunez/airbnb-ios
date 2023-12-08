@@ -29,10 +29,10 @@ struct SearchFilterBarView: View {
             Spacer()
 
             // filter
-            Button {} label: {
-                Image(systemName: "line.3.horizontal.decrease.circle")
-                    .foregroundStyle(.black)
-            }
+//            Button {} label: {
+            Image(systemName: "line.3.horizontal.decrease.circle")
+                .foregroundStyle(.black)
+//            }
         }
         .padding(.horizontal)
         .padding(.vertical, 10)

@@ -16,6 +16,7 @@
 		9E501ABE2B2193B500745DDF /* ListingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501ABD2B2193B500745DDF /* ListingDetailsView.swift */; };
 		9E501AC02B21945000745DDF /* mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501ABF2B21945000745DDF /* mocks.swift */; };
 		9E501AC32B2195FE00745DDF /* ImageCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501AC22B2195FE00745DDF /* ImageCarouselView.swift */; };
+		9E501AC52B237EB800745DDF /* DestinationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501AC42B237EB800745DDF /* DestinationSearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		9E501ABD2B2193B500745DDF /* ListingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsView.swift; sourceTree = "<group>"; };
 		9E501ABF2B21945000745DDF /* mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mocks.swift; sourceTree = "<group>"; };
 		9E501AC22B2195FE00745DDF /* ImageCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarouselView.swift; sourceTree = "<group>"; };
+		9E501AC42B237EB800745DDF /* DestinationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				9E501AC12B2195D800745DDF /* Components */,
 				9E501AA62B201BE300745DDF /* Core */,
 				9E501AA82B201BFB00745DDF /* Extensions */,
+				9E501AA92B201C0400745DDF /* Models */,
 				9E501AA72B201BF300745DDF /* Utils */,
 				9E501A9B2B201AD300745DDF /* Assets.xcassets */,
 				9E501A9D2B201AD300745DDF /* Preview Content */,
@@ -113,7 +116,6 @@
 		9E501AA82B201BFB00745DDF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9E501AA92B201C0400745DDF /* Models */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -130,6 +132,7 @@
 			children = (
 				9E501AB32B201E9300745DDF /* ExploreView.swift */,
 				9E501ABB2B21858F00745DDF /* SearchFilterBarView.swift */,
+				9E501AC42B237EB800745DDF /* DestinationSearchView.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E501ABE2B2193B500745DDF /* ListingDetailsView.swift in Sources */,
+				9E501AC52B237EB800745DDF /* DestinationSearchView.swift in Sources */,
 				9E501ABA2B201FF600745DDF /* ListingItemView.swift in Sources */,
 				9E501AB42B201E9300745DDF /* ExploreView.swift in Sources */,
 				9E501AC02B21945000745DDF /* mocks.swift in Sources */,
