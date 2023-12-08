@@ -16,38 +16,41 @@ struct DestinationSearchView: View {
 
     var body: some View {
         VStack {
-            // top controls
-            HStack {
-                // close button
-                Button {
-                    withAnimation(.snappy) {
-                        showView.toggle()
-                    }
-                } label: {
-                    Image(systemName: "xmark.circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 32, height: 32)
-                        .foregroundStyle(.black)
-                }
-
-                Spacer()
-
-                Text("Clear")
-                    .fontWeight(.semibold)
-            }
-            .padding(.horizontal)
-            .padding(.bottom, 16)
+            // nav controls
+            NavigationControlsView(showView: $showView)
 
             // location search
             LocationSearchView(text: $destinationText)
-            
-            // data selection
+
+            // date selection
             VStack {
-                
+                HStack {
+                    Text("When")
+                        .foregroundStyle(.gray)
+
+                    Spacer()
+
+                    Text("Add dates")
+                }
+                .font(.headline)
+                .fontWeight(.semibold)
             }
-            
+            .cardStyle()
+
             // guest selection
+            VStack {
+                HStack {
+                    Text("Who")
+                        .foregroundStyle(.gray)
+
+                    Spacer()
+
+                    Text("Add guests")
+                }
+                .font(.headline)
+                .fontWeight(.semibold)
+            }
+            .cardStyle()
 
             Spacer()
         }
@@ -82,10 +85,34 @@ private struct LocationSearchView: View {
                     .foregroundStyle(Color(.systemGray4))
             }
         }
-        .padding()
-        .background(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        .padding()
-        .shadow(color: .black.opacity(0.1), radius: 10)
+        .cardStyle()
+    }
+}
+
+struct NavigationControlsView: View {
+    @Binding var showView: Bool
+
+    var body: some View {
+        HStack {
+            // close button
+            Button {
+                withAnimation(.snappy) {
+                    showView.toggle()
+                }
+            } label: {
+                Image(systemName: "xmark.circle")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 32, height: 32)
+                    .foregroundStyle(.black)
+            }
+
+            Spacer()
+
+            Text("Clear")
+                .fontWeight(.semibold)
+        }
+        .padding(.horizontal)
+        .padding(.bottom, 16)
     }
 }
