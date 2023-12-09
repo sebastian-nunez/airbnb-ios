@@ -25,6 +25,10 @@
 		9EFA6F122B24D85E0068B3FE /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F112B24D85E0068B3FE /* WishlistView.swift */; };
 		9EFA6F142B24DAA60068B3FE /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F132B24DAA60068B3FE /* MainTabView.swift */; };
 		9EFA6F182B24E42C0068B3FE /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F172B24E42C0068B3FE /* Listing.swift */; };
+		9EFA6F1F2B24F1EB0068B3FE /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F1E2B24F1EB0068B3FE /* ExploreViewModel.swift */; };
+		9EFA6F262B24F3A00068B3FE /* ExploreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F252B24F3A00068B3FE /* ExploreService.swift */; };
+		9EFA6F282B24F45F0068B3FE /* MockExploreServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F272B24F45F0068B3FE /* MockExploreServiceImpl.swift */; };
+		9EFA6F2A2B24F77D0068B3FE /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F292B24F77D0068B3FE /* Double.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +51,10 @@
 		9EFA6F112B24D85E0068B3FE /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
 		9EFA6F132B24DAA60068B3FE /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		9EFA6F172B24E42C0068B3FE /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+		9EFA6F1E2B24F1EB0068B3FE /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
+		9EFA6F252B24F3A00068B3FE /* ExploreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreService.swift; sourceTree = "<group>"; };
+		9EFA6F272B24F45F0068B3FE /* MockExploreServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExploreServiceImpl.swift; sourceTree = "<group>"; };
+		9EFA6F292B24F77D0068B3FE /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				9E501AC62B238ECE00745DDF /* View.swift */,
+				9EFA6F292B24F77D0068B3FE /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -149,9 +158,9 @@
 		9E501AAB2B201C6C00745DDF /* Explore */ = {
 			isa = PBXGroup;
 			children = (
-				9E501AB32B201E9300745DDF /* ExploreView.swift */,
-				9E501ABB2B21858F00745DDF /* SearchFilterBarView.swift */,
-				9E501AC42B237EB800745DDF /* DestinationSearchView.swift */,
+				9EFA6F1D2B24F1BF0068B3FE /* Service */,
+				9EFA6F1C2B24F1BD0068B3FE /* View */,
+				9EFA6F1B2B24F1BA0068B3FE /* ViewModel */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -159,8 +168,8 @@
 		9E501AAC2B201C7000745DDF /* Listings */ = {
 			isa = PBXGroup;
 			children = (
-				9EFA6F152B24E3E60068B3FE /* ViewModels */,
-				9EFA6F162B24E3EC0068B3FE /* Views */,
+				9E501AB92B201FF600745DDF /* ListingItemView.swift */,
+				9E501ABD2B2193B500745DDF /* ListingDetailsView.swift */,
 			);
 			path = Listings;
 			sourceTree = "<group>";
@@ -221,20 +230,39 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
-		9EFA6F152B24E3E60068B3FE /* ViewModels */ = {
+		9EFA6F1B2B24F1BA0068B3FE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9EFA6F1E2B24F1EB0068B3FE /* ExploreViewModel.swift */,
 			);
-			path = ViewModels;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		9EFA6F162B24E3EC0068B3FE /* Views */ = {
+		9EFA6F1C2B24F1BD0068B3FE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9E501AB92B201FF600745DDF /* ListingItemView.swift */,
-				9E501ABD2B2193B500745DDF /* ListingDetailsView.swift */,
+				9E501AB32B201E9300745DDF /* ExploreView.swift */,
+				9E501ABB2B21858F00745DDF /* SearchFilterBarView.swift */,
+				9E501AC42B237EB800745DDF /* DestinationSearchView.swift */,
 			);
-			path = Views;
+			path = View;
+			sourceTree = "<group>";
+		};
+		9EFA6F1D2B24F1BF0068B3FE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9EFA6F222B24F3570068B3FE /* ExploreServiceImpl */,
+				9EFA6F252B24F3A00068B3FE /* ExploreService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		9EFA6F222B24F3570068B3FE /* ExploreServiceImpl */ = {
+			isa = PBXGroup;
+			children = (
+				9EFA6F272B24F45F0068B3FE /* MockExploreServiceImpl.swift */,
+			);
+			path = ExploreServiceImpl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,17 +339,21 @@
 				9EFA6F122B24D85E0068B3FE /* WishlistView.swift in Sources */,
 				9EFA6F182B24E42C0068B3FE /* Listing.swift in Sources */,
 				9E501ABE2B2193B500745DDF /* ListingDetailsView.swift in Sources */,
+				9EFA6F262B24F3A00068B3FE /* ExploreService.swift in Sources */,
 				9E501AC52B237EB800745DDF /* DestinationSearchView.swift in Sources */,
 				9E501ABA2B201FF600745DDF /* ListingItemView.swift in Sources */,
 				9EFA6F0E2B24CE9D0068B3FE /* ProfileView.swift in Sources */,
 				9E501AB42B201E9300745DDF /* ExploreView.swift in Sources */,
 				9E501AC02B21945000745DDF /* mocks.swift in Sources */,
+				9EFA6F282B24F45F0068B3FE /* MockExploreServiceImpl.swift in Sources */,
+				9EFA6F1F2B24F1EB0068B3FE /* ExploreViewModel.swift in Sources */,
 				9E501AC72B238ECE00745DDF /* View.swift in Sources */,
 				9EFA6F102B24D3030068B3FE /* ProfileOptionRowView.swift in Sources */,
 				9E501A982B201ACC00745DDF /* Airbnb_CloneApp.swift in Sources */,
 				9E501AC32B2195FE00745DDF /* ImageCarouselView.swift in Sources */,
 				9E501ABC2B21859000745DDF /* SearchFilterBarView.swift in Sources */,
 				9E501AD02B23A96900745DDF /* Card.swift in Sources */,
+				9EFA6F2A2B24F77D0068B3FE /* Double.swift in Sources */,
 				9EFA6F142B24DAA60068B3FE /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
