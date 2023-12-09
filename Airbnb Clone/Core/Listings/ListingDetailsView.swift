@@ -54,17 +54,17 @@ struct ListingDetailsView: View {
             Divider()
 
             // listing features
-            ListingFeaturesView() // TODO: create data model
+            ListingFeaturesView(features: listing.features)
 
             Divider()
 
             // room details
-            RoomDetailsView() // TODO: create data model & link to rooms
+            RoomDetailsView(numRooms: listing.numBedrooms)
 
             Divider()
 
             // amenities
-            ListingAmenitiesView() // TODO: create data model
+            ListingAmenitiesView(amenities: listing.amemities)
 
             Divider()
 
@@ -165,19 +165,21 @@ private struct HostInfoView: View {
 }
 
 private struct ListingFeaturesView: View {
+    var features: [ListingFeature]
+
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            ForEach(1 ... 2, id: \.self) { _ in
+            ForEach(features) { feature in
                 // feature
                 HStack(spacing: 12) {
-                    Image(systemName: "medal")
+                    Image(systemName: feature.imageName)
 
                     VStack(alignment: .leading) {
-                        Text("Self check-in")
+                        Text(feature.title)
                             .font(.footnote)
                             .fontWeight(.semibold)
 
-                        Text("Check yourself in with the keypad")
+                        Text(feature.subTitle)
                             .font(.caption)
                             .foregroundStyle(.gray)
                     }
@@ -191,6 +193,8 @@ private struct ListingFeaturesView: View {
 }
 
 private struct RoomDetailsView: View {
+    var numRooms: Int
+
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text("Where you'll sleep")
@@ -198,11 +202,11 @@ private struct RoomDetailsView: View {
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
-                    ForEach(1 ..< 5, id: \.self) { bedroom in
+                    ForEach(1 ... numRooms, id: \.self) { roomNumber in
                         VStack(alignment: .leading, spacing: 8) {
                             Image(systemName: "bed.double")
 
-                            Text("Bedroom \(bedroom)")
+                            Text("Bedroom \(roomNumber)")
                                 .font(.caption2)
                                 .fontWeight(.semibold)
                         }
@@ -223,17 +227,19 @@ private struct RoomDetailsView: View {
 }
 
 private struct ListingAmenitiesView: View {
+    let amenities: [ListingAmenity]
+
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text("What this place offers")
                 .font(.headline)
 
-            ForEach(1 ..< 5, id: \.self) { _ in
+            ForEach(amenities) { amenity in
                 HStack {
-                    Image(systemName: "wifi")
+                    Image(systemName: amenity.imageName)
                         .frame(width: 32)
 
-                    Text("Wifi")
+                    Text(amenity.title)
                         .font(.footnote)
 
                     Spacer()

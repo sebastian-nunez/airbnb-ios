@@ -23,6 +23,7 @@ enum Mock {
             ownerImageUrl: "male-1",
             title: "Cozy Apartment near Downtown",
             rating: 4.5,
+            numReviews: 29,
             type: .apartment,
             images: [
                 "listing-1",
@@ -52,6 +53,7 @@ enum Mock {
             ownerImageUrl: "female-2",
             title: "Spacious House with Garden",
             rating: 5.0,
+            numReviews: 203,
             type: .house,
             images: [
                 "listing-4",
@@ -80,6 +82,7 @@ enum Mock {
             ownerImageUrl: "female-1",
             title: "Modern Townhouse in the Heart of the City",
             rating: 4.2,
+            numReviews: 120,
             type: .townHouse,
             images: [
                 "listing-7",
@@ -109,6 +112,7 @@ enum Mock {
             ownerImageUrl: "male-2",
             title: "Luxurious Villa with Ocean View",
             rating: 4.8,
+            numReviews: 37,
             type: .villa,
             images: [
                 "listing-10",
@@ -138,6 +142,7 @@ enum Mock {
             ownerImageUrl: "male-3",
             title: "Charming Cottage with Garden",
             rating: 4.6,
+            numReviews: 32,
             type: .house,
             images: [
                 "listing-5",
@@ -165,6 +170,7 @@ enum Mock {
             ownerImageUrl: "female-3",
             title: "Sunny Apartment with Panoramic Views",
             rating: 4.9,
+            numReviews: 72,
             type: .apartment,
             images: [
                 "listing-8",
@@ -193,6 +199,7 @@ enum Mock {
             ownerImageUrl: "male-4",
             title: "Rustic Cabin Retreat in the Mountains",
             rating: 4.7,
+            numReviews: 14
             type: .house,
             images: [
                 "listing-2",

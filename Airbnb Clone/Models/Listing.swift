@@ -18,6 +18,7 @@ struct Listing: Identifiable, Codable, Hashable {
     // listing info
     let title: String
     var rating: Double
+    var numReviews: Int
     let type: ListingType
     var images: [String]
 
@@ -41,11 +42,11 @@ struct Listing: Identifiable, Codable, Hashable {
     let zipCode: Int
 
     // property benefits
-    var features: [ListingFeatures]
-    var amemities: [ListingAmenities]
+    var features: [ListingFeature]
+    var amemities: [ListingAmenity]
 }
 
-enum ListingFeatures: Int, Codable, Identifiable, Hashable {
+enum ListingFeature: Int, Codable, Identifiable, Hashable {
     case selfCheckin
     case superHost
 
@@ -75,7 +76,7 @@ enum ListingFeatures: Int, Codable, Identifiable, Hashable {
     }
 }
 
-enum ListingAmenities: Int, Codable, Identifiable, Hashable {
+enum ListingAmenity: Int, Codable, Identifiable, Hashable {
     case pool
     case kitchen
     case wifi
