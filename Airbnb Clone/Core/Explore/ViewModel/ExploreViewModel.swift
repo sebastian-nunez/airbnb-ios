@@ -15,7 +15,7 @@ class ExploreViewModel: ObservableObject {
         self.service = service // inject the service
 
         Task(priority: .medium) {
-            fetchListings
+            await fetchListings()
         }
     }
 
