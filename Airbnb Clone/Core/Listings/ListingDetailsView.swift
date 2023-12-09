@@ -37,7 +37,7 @@ struct ListingDetailsView: View {
             // property details
             PropertyDetailsView(title: listing.title,
                                 rating: listing.rating,
-                                numReviews: 28,
+                                numReviews: listing.numReviews,
                                 location: "\(listing.city), \(listing.state)")
 
             Divider()
