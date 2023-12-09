@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class MockExploreServiceImpl: ExploreService {
+    func fetchListings() async throws -> [Listing] {
+        return Mock.listings // TODO: replace with actual API call
+    }
+}

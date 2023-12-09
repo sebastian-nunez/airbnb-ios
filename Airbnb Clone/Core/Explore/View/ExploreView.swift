@@ -10,6 +10,9 @@ import SwiftUI
 struct ExploreView: View {
     @State private var showDestinationSearchView = false
 
+    // inject view model
+    @State private var viewModel = ExploreViewModel(with: MockExploreServiceImpl())
+
     var body: some View {
         NavigationStack {
             if showDestinationSearchView {
@@ -26,9 +29,9 @@ struct ExploreView: View {
 
                     // listings
                     LazyVStack(spacing: 32) {
-                        ForEach(1 ... 20, id: \.self) { listing in // TODO: replace with actual listing model
+                        ForEach(viewModel.listings) { listing in // TODO: replace with actual listing model
                             NavigationLink(value: listing) {
-                                ListingItemView()
+                                ListingItemView(listing: listing)
                             }
                         }
                     }
