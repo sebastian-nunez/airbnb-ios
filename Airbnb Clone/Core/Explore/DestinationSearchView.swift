@@ -29,38 +29,20 @@ struct DestinationSearchView: View {
             // location search
             LocationSearchView(text: $destinationText, selectedOption: selectedOption)
                 .onTapGesture {
-                    withAnimation(.snappy) {
-                        selectedOption = .location
-                    }
+                    withAnimation(.snappy) { selectedOption = .location }
                 }
 
             // date selection
-            VStack {
-                if selectedOption == .dates {
-                    Text("Select Dates")
-                } else {
-                    CollapsedCardView(title: "When", description: "Add dates")
+            DateSelectionView(selectedOption: selectedOption)
+                .onTapGesture {
+                    withAnimation(.snappy) { selectedOption = .dates }
                 }
-            }
-            .onTapGesture {
-                withAnimation(.snappy) {
-                    selectedOption = .dates
-                }
-            }
 
             // guest selection
-            VStack {
-                if selectedOption == .guests {
-                    Text("Select Guests")
-                } else {
-                    CollapsedCardView(title: "When", description: "Add guests")
+            GuestSelectionView(selectedOption: selectedOption)
+                .onTapGesture {
+                    withAnimation(.snappy) { selectedOption = .guests }
                 }
-            }
-            .onTapGesture {
-                withAnimation(.snappy) {
-                    selectedOption = .guests
-                }
-            }
 
             Spacer()
         }
@@ -70,6 +52,40 @@ struct DestinationSearchView: View {
 
 #Preview {
     DestinationSearchView(showView: .constant(false))
+}
+
+private struct NavigationControlsView: View {
+    @Binding var showView: Bool
+
+    var body: some View {
+        HStack {
+            // close button
+            Button {
+                withAnimation(.snappy) {
+                    showView.toggle()
+                }
+            } label: {
+                Image(systemName: "xmark.circle")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 32, height: 32)
+                    .foregroundStyle(.foreground)
+            }
+
+            Spacer()
+
+            // clear button
+            Button {
+                print("DEBUG: clearing the search inputs...")
+            } label: {
+                Text("Clear")
+                    .fontWeight(.semibold)
+            }
+            .foregroundStyle(.foreground)
+        }
+        .padding(.horizontal)
+        .padding(.bottom, 16)
+    }
 }
 
 private struct LocationSearchView: View {
@@ -105,45 +121,13 @@ private struct LocationSearchView: View {
     }
 }
 
-private struct NavigationControlsView: View {
-    @Binding var showView: Bool
-
-    var body: some View {
-        HStack {
-            // close button
-            Button {
-                withAnimation(.snappy) {
-                    showView.toggle()
-                }
-            } label: {
-                Image(systemName: "xmark.circle")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 32, height: 32)
-                    .foregroundStyle(.foreground)
-            }
-
-            Spacer()
-
-            Button {
-                print("DEBUG: clearing the search inputs...")
-            } label: {
-                Text("Clear")
-                    .fontWeight(.semibold)
-            }
-            .foregroundStyle(.foreground)
-        }
-        .padding(.horizontal)
-        .padding(.bottom, 16)
-    }
-}
-
 private struct CollapsedCardView: View {
     var title: String
     var description: String
 
     var body: some View {
         VStack {
+            // header
             HStack {
                 Text(title)
                     .foregroundStyle(.gray)
@@ -155,6 +139,55 @@ private struct CollapsedCardView: View {
             .font(.headline)
             .fontWeight(.semibold)
         }
+        .frame(height: 32)
         .cardStyle()
+    }
+}
+
+private struct DateSelectionView: View {
+    var selectedOption: DestinationSearchOptions
+
+    var body: some View {
+        VStack {
+            if selectedOption == .dates {
+                VStack(alignment: .leading) {
+                    // header
+                    HStack {
+                        Text("When's your trip?")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+
+                        Spacer()
+                    }
+                }
+                .cardStyle()
+            } else {
+                CollapsedCardView(title: "When", description: "Add dates")
+            }
+        }
+    }
+}
+
+private struct GuestSelectionView: View {
+    var selectedOption: DestinationSearchOptions
+
+    var body: some View {
+        VStack {
+            if selectedOption == .guests {
+                VStack(alignment: .leading) {
+                    // header
+                    HStack {
+                        Text("How many guests?")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+
+                        Spacer()
+                    }
+                }
+                .cardStyle()
+            } else {
+                CollapsedCardView(title: "When", description: "Add guests")
+            }
+        }
     }
 }
