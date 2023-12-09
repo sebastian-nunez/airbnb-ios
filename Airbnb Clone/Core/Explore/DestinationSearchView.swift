@@ -18,15 +18,17 @@ struct DestinationSearchView: View {
     @Binding var showView: Bool
 
     // state
+    @State private var selectedOption: DestinationSearchOptions = .location
     @State private var destinationText = ""
-    @State private var selectedOption: DestinationSearchOptions = .dates
     @State private var startDate = Date()
     @State private var endDate = Date()
+    @State private var numAdults = 1
 
     var body: some View {
         VStack {
             // nav controls
-            NavigationControlsView(showView: $showView)
+            NavigationControlsView(showView: $showView,
+                                   destinationText: $destinationText)
 
             // location search
             LocationSearchView(text: $destinationText, selectedOption: selectedOption)
@@ -41,7 +43,7 @@ struct DestinationSearchView: View {
                 }
 
             // guest selection
-            GuestSelectionView(selectedOption: selectedOption)
+            GuestSelectionView(selectedOption: selectedOption, numAdults: $numAdults)
                 .onTapGesture {
                     withAnimation(.snappy) { selectedOption = .guests }
                 }
@@ -58,6 +60,7 @@ struct DestinationSearchView: View {
 
 private struct NavigationControlsView: View {
     @Binding var showView: Bool
+    @Binding var destinationText: String
 
     var body: some View {
         HStack {
@@ -77,13 +80,17 @@ private struct NavigationControlsView: View {
             Spacer()
 
             // clear button
-            Button {
-                print("DEBUG: clearing the search inputs...")
-            } label: {
-                Text("Clear")
-                    .fontWeight(.semibold)
+            if !destinationText.isEmpty {
+                withAnimation(.snappy) {
+                    Button {
+                        destinationText = ""
+                    } label: {
+                        Text("Clear")
+                            .fontWeight(.semibold)
+                    }
+                    .foregroundStyle(.foreground)
+                }
             }
-            .foregroundStyle(.foreground)
         }
         .padding(.horizontal)
         .padding(.bottom, 16)
@@ -92,7 +99,6 @@ private struct NavigationControlsView: View {
 
 private struct LocationSearchView: View {
     @Binding var text: String
-
     var selectedOption: DestinationSearchOptions
 
     var body: some View {
@@ -187,6 +193,7 @@ private struct DateSelectionView: View {
 
 private struct GuestSelectionView: View {
     var selectedOption: DestinationSearchOptions
+    @Binding var numAdults: Int
 
     var body: some View {
         VStack {
@@ -194,16 +201,26 @@ private struct GuestSelectionView: View {
                 VStack(alignment: .leading) {
                     // header
                     HStack {
-                        Text("How many guests?")
+                        Text("Who's coming?")
                             .font(.title2)
                             .fontWeight(.semibold)
 
                         Spacer()
                     }
+
+                    Stepper {
+                        Text("\(numAdults) Adults")
+                    } onIncrement: {
+                        numAdults += 1
+                    } onDecrement: {
+                        guard numAdults > 1 else { return }
+
+                        numAdults -= 1
+                    }
                 }
                 .cardStyle()
             } else {
-                CollapsedCardView(title: "When", description: "Add guests")
+                CollapsedCardView(title: "Who", description: "Add guests")
             }
         }
     }
