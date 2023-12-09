@@ -70,6 +70,7 @@ struct ListingDetailsView: View {
             // map view
             ListingMapView()
         }
+        .toolbar(.hidden, for: .tabBar) // disable tab bar since we have overlay
         .ignoresSafeArea() // make images span to the top of the screen
         .padding(.bottom, 64) // push map above overlay
         .overlay(alignment: .bottom) { // bottom overlay
