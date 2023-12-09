@@ -35,8 +35,8 @@ struct ExploreView: View {
                             }
                         }
                     }
-                }.navigationDestination(for: Listing.self) { _ in // TODO: replace with actual listing model
-                    ListingDetailsView()
+                }.navigationDestination(for: Listing.self) { listing in // TODO: replace with actual listing model
+                    ListingDetailsView(listing: listing)
                         .navigationBarBackButtonHidden()
                 }
             }

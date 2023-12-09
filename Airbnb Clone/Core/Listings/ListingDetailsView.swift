@@ -10,12 +10,13 @@ import SwiftUI
 
 struct ListingDetailsView: View {
     @Environment(\.dismiss) var dismiss
+    var listing: Listing
 
     var body: some View {
         ScrollView(.vertical) {
             // images
             ZStack(alignment: .topLeading) {
-                ImageCarouselView(images: mockListingImages, cornerRadius: 0)
+                ImageCarouselView(images: listing.images, cornerRadius: 0)
 
                 // back button
                 Button {
@@ -34,21 +35,21 @@ struct ListingDetailsView: View {
             }
 
             // property details
-            PropertyDetailsView(title: "Miami Villa",
-                                rating: 4.86,
+            PropertyDetailsView(title: listing.title,
+                                rating: listing.rating,
                                 numReviews: 28,
-                                location: "Miami, Florida")
+                                location: "\(listing.city), \(listing.state)")
 
             Divider()
 
             // host info
-            HostInfoView(headline: "Entire villa",
-                         hostName: "John Smith",
-                         hostImage: "male-photo",
-                         numGuests: 4,
-                         numBedrooms: 4,
-                         numBeds: 4,
-                         numBaths: 3)
+            HostInfoView(headline: listing.type.description,
+                         hostName: listing.ownerName,
+                         hostImage: listing.ownerImageUrl,
+                         numGuests: listing.numGuests,
+                         numBedrooms: listing.numBedrooms,
+                         numBeds: listing.numBeds,
+                         numBaths: listing.numBathrooms)
 
             Divider()
 
@@ -80,7 +81,7 @@ struct ListingDetailsView: View {
 }
 
 #Preview {
-    ListingDetailsView()
+    ListingDetailsView(listing: Mock.listings[0])
 }
 
 private struct PropertyDetailsView: View {
@@ -99,7 +100,7 @@ private struct PropertyDetailsView: View {
                 HStack(spacing: 2) {
                     // ratings
                     Image(systemName: "star.fill")
-                    Text(String(format: "%.2f", rating))
+                    Text(rating.printTo(2))
                         .fontWeight(.bold)
 
                     Text(" - ")
