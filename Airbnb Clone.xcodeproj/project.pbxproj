@@ -22,6 +22,7 @@
 		9E501AD02B23A96900745DDF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501ACF2B23A96900745DDF /* Card.swift */; };
 		9EFA6F0E2B24CE9D0068B3FE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F0D2B24CE9D0068B3FE /* ProfileView.swift */; };
 		9EFA6F102B24D3030068B3FE /* ProfileOptionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F0F2B24D3030068B3FE /* ProfileOptionRowView.swift */; };
+		9EFA6F122B24D85E0068B3FE /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F112B24D85E0068B3FE /* WishlistView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		9E501ACF2B23A96900745DDF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		9EFA6F0D2B24CE9D0068B3FE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		9EFA6F0F2B24D3030068B3FE /* ProfileOptionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionRowView.swift; sourceTree = "<group>"; };
+		9EFA6F112B24D85E0068B3FE /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 		9E501AB12B201D1A00745DDF /* Wishlists */ = {
 			isa = PBXGroup;
 			children = (
+				9EFA6F112B24D85E0068B3FE /* WishlistView.swift */,
 			);
 			path = Wishlists;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E501ACC2B23909E00745DDF /* DropShadow.swift in Sources */,
+				9EFA6F122B24D85E0068B3FE /* WishlistView.swift in Sources */,
 				9E501ABE2B2193B500745DDF /* ListingDetailsView.swift in Sources */,
 				9E501AC52B237EB800745DDF /* DestinationSearchView.swift in Sources */,
 				9E501ABA2B201FF600745DDF /* ListingItemView.swift in Sources */,
