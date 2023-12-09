@@ -199,7 +199,7 @@ enum Mock {
             ownerImageUrl: "male-4",
             title: "Rustic Cabin Retreat in the Mountains",
             rating: 4.7,
-            numReviews: 14
+            numReviews: 14,
             type: .house,
             images: [
                 "listing-2",
