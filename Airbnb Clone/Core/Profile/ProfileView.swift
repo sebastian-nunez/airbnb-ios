@@ -11,6 +11,8 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 32) {
+                Spacer()
+
                 // header
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Profile")
@@ -20,8 +22,6 @@ struct ProfileView: View {
                     Text("Login in to start planning your next trip")
                         .font(.subheadline)
                 }
-
-                Spacer()
 
                 // login button
                 Button {
@@ -66,6 +66,7 @@ struct ProfileView: View {
                         ProfileOptionRowView(imageName: "questionmark.circle", title: "Visit the help center")
                     }
                 }
+                .padding(.bottom)
                 .tint(.primary)
                 .navigationDestination(for: String.self, destination: { _ in
                     Text("We're still working on it...")
