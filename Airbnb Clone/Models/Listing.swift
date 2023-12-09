@@ -19,6 +19,7 @@ struct Listing: Identifiable, Codable {
     let title: String
     var rating: Double
     let type: ListingType
+    var images: [String]
 
     // bedrooms
     let numBedrooms: Int
