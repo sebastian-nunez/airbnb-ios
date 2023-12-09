@@ -19,7 +19,9 @@ struct DestinationSearchView: View {
 
     // state
     @State private var destinationText = ""
-    @State private var selectedOption: DestinationSearchOptions = .location
+    @State private var selectedOption: DestinationSearchOptions = .dates
+    @State private var startDate = Date()
+    @State private var endDate = Date()
 
     var body: some View {
         VStack {
@@ -33,7 +35,7 @@ struct DestinationSearchView: View {
                 }
 
             // date selection
-            DateSelectionView(selectedOption: selectedOption)
+            DateSelectionView(selectedOption: selectedOption, startDate: $startDate, endDate: $endDate)
                 .onTapGesture {
                     withAnimation(.snappy) { selectedOption = .dates }
                 }
@@ -146,6 +148,8 @@ private struct CollapsedCardView: View {
 
 private struct DateSelectionView: View {
     var selectedOption: DestinationSearchOptions
+    @Binding var startDate: Date
+    @Binding var endDate: Date
 
     var body: some View {
         VStack {
@@ -159,6 +163,19 @@ private struct DateSelectionView: View {
 
                         Spacer()
                     }
+
+                    // date picker
+                    VStack {
+                        DatePicker("From", selection: $startDate, displayedComponents: .date)
+
+                        Divider()
+
+                        DatePicker("To", selection: $endDate, displayedComponents: .date)
+                    }
+                    .tint(.pink) // change calendar color
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.gray)
                 }
                 .cardStyle()
             } else {
