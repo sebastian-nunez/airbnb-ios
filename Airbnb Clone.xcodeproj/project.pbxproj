@@ -20,6 +20,8 @@
 		9E501AC72B238ECE00745DDF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501AC62B238ECE00745DDF /* View.swift */; };
 		9E501ACC2B23909E00745DDF /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501ACB2B23909E00745DDF /* DropShadow.swift */; };
 		9E501AD02B23A96900745DDF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E501ACF2B23A96900745DDF /* Card.swift */; };
+		9EFA6F0E2B24CE9D0068B3FE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F0D2B24CE9D0068B3FE /* ProfileView.swift */; };
+		9EFA6F102B24D3030068B3FE /* ProfileOptionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA6F0F2B24D3030068B3FE /* ProfileOptionRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		9E501AC62B238ECE00745DDF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		9E501ACB2B23909E00745DDF /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
 		9E501ACF2B23A96900745DDF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		9EFA6F0D2B24CE9D0068B3FE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		9EFA6F0F2B24D3030068B3FE /* ProfileOptionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,8 @@
 		9E501AAE2B201C7800745DDF /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				9EFA6F0D2B24CE9D0068B3FE /* ProfileView.swift */,
+				9EFA6F0F2B24D3030068B3FE /* ProfileOptionRowView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -280,9 +286,11 @@
 				9E501ABE2B2193B500745DDF /* ListingDetailsView.swift in Sources */,
 				9E501AC52B237EB800745DDF /* DestinationSearchView.swift in Sources */,
 				9E501ABA2B201FF600745DDF /* ListingItemView.swift in Sources */,
+				9EFA6F0E2B24CE9D0068B3FE /* ProfileView.swift in Sources */,
 				9E501AB42B201E9300745DDF /* ExploreView.swift in Sources */,
 				9E501AC02B21945000745DDF /* mocks.swift in Sources */,
 				9E501AC72B238ECE00745DDF /* View.swift in Sources */,
+				9EFA6F102B24D3030068B3FE /* ProfileOptionRowView.swift in Sources */,
 				9E501A982B201ACC00745DDF /* Airbnb_CloneApp.swift in Sources */,
 				9E501AC32B2195FE00745DDF /* ImageCarouselView.swift in Sources */,
 				9E501ABC2B21859000745DDF /* SearchFilterBarView.swift in Sources */,
