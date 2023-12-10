@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct ExploreView: View {
-    @State private var showDestinationSearchView = false
-
     // inject view model
-    @State private var viewModel = ExploreViewModel(with: MockExploreServiceImpl())
+    @StateObject var viewModel = ExploreViewModel(with: MockExploreServiceImpl())
+
+    @State private var showDestinationSearchView = false
 
     var body: some View {
         NavigationStack {
             if showDestinationSearchView {
-                DestinationSearchView(showView: $showDestinationSearchView)
+                DestinationSearchView(showView: $showDestinationSearchView,
+                                      viewModel: viewModel)
             } else {
                 ScrollView(.vertical) {
                     // search bar
@@ -46,5 +47,5 @@ struct ExploreView: View {
 }
 
 #Preview {
-    ExploreView()
+    ExploreView(viewModel: ExploreViewModel(with: MockExploreServiceImpl()))
 }

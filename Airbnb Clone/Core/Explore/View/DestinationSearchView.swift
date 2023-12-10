@@ -16,6 +16,7 @@ enum DestinationSearchOptions {
 struct DestinationSearchView: View {
     // bindings
     @Binding var showView: Bool
+    @ObservedObject var viewModel: ExploreViewModel
 
     // state
     @State private var selectedOption: DestinationSearchOptions = .location
@@ -31,7 +32,10 @@ struct DestinationSearchView: View {
                                    destinationText: $destinationText)
 
             // location search
-            LocationSearchView(text: $destinationText, selectedOption: selectedOption)
+            LocationSearchView(destination: $destinationText,
+                               selectedOption: selectedOption,
+                               viewModel: viewModel,
+                               showView: $showView)
                 .onTapGesture {
                     withAnimation(.snappy) { selectedOption = .location }
                 }
@@ -55,7 +59,8 @@ struct DestinationSearchView: View {
 }
 
 #Preview {
-    DestinationSearchView(showView: .constant(false))
+    DestinationSearchView(showView: .constant(false),
+                          viewModel: ExploreViewModel(with: MockExploreServiceImpl()))
 }
 
 private struct NavigationControlsView: View {
@@ -98,8 +103,10 @@ private struct NavigationControlsView: View {
 }
 
 private struct LocationSearchView: View {
-    @Binding var text: String
+    @Binding var destination: String
     var selectedOption: DestinationSearchOptions
+    @ObservedObject var viewModel: ExploreViewModel
+    @Binding var showView: Bool
 
     var body: some View {
         if selectedOption == .location {
@@ -112,8 +119,12 @@ private struct LocationSearchView: View {
                     Image(systemName: "magnifyingglass")
                         .imageScale(.medium)
 
-                    TextField("Search destinations...", text: $text)
+                    TextField("Search destinations...", text: $destination)
                         .font(.subheadline)
+                        .onSubmit {
+                            viewModel.filterListingByLocation(for: destination)
+                            showView.toggle() // close overlay
+                        }
                 }
                 .padding()
                 .overlay {

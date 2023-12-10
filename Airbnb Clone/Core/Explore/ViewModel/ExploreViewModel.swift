@@ -30,12 +30,9 @@ class ExploreViewModel: ObservableObject {
     func filterListingByLocation(for location: String) {
         let normalizedLocation = location.lowercased()
 
-        let filteredListings = listings.filter { listing in
-            let normalizedCity = listing.city.lowercased()
-            let normalizedState = listing.state.lowercased()
-
-            return normalizedCity.starts(with: normalizedLocation) ||
-                normalizedState.starts(with: normalizedLocation)
+        let filteredListings = listings.filter {
+            $0.city.lowercased().starts(with: normalizedLocation) ||
+                $0.state.lowercased().starts(with: normalizedLocation)
         }
 
         listings = filteredListings.isEmpty ? listings : filteredListings
