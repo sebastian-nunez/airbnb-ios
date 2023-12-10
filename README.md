@@ -6,6 +6,10 @@
 
 ## Demo
 
+> Full walkthrough of most of the app features and UI
+
+![demo 1](./screenshots/demo_1.gif)
+
 ## Table of Contents
 
 - [Overview](#overview)
