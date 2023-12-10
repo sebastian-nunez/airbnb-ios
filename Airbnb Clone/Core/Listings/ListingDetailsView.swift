@@ -12,6 +12,21 @@ struct ListingDetailsView: View {
     @Environment(\.dismiss) var dismiss
     var listing: Listing
 
+    // state
+    @State private var cameraPosition: MapCameraPosition
+
+    init(listing: Listing) {
+        self.listing = listing
+
+        // set up map area
+        let center = CLLocationCoordinate2D(latitude: listing.latitude,
+                                            longitude: listing.longitude)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+
+        let region = MKCoordinateRegion(center: center, span: span)
+        self._cameraPosition = State(initialValue: .region(region))
+    }
+
     var body: some View {
         ScrollView(.vertical) {
             // images
@@ -38,7 +53,8 @@ struct ListingDetailsView: View {
             PropertyDetailsView(title: listing.title,
                                 rating: listing.rating,
                                 numReviews: listing.numReviews,
-                                location: "\(listing.city), \(listing.state)")
+                                city: listing.city,
+                                state: listing.state)
 
             Divider()
 
@@ -69,7 +85,7 @@ struct ListingDetailsView: View {
             Divider()
 
             // map view
-            ListingMapView()
+            ListingMapView(cameraPosition: cameraPosition)
         }
         .toolbar(.hidden, for: .tabBar) // disable tab bar since we have overlay
         .ignoresSafeArea() // make images span to the top of the screen
@@ -88,7 +104,8 @@ private struct PropertyDetailsView: View {
     var title: String
     var rating: Double
     var numReviews: Int
-    var location: String
+    var city: String
+    var state: String
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -113,7 +130,7 @@ private struct PropertyDetailsView: View {
                 .foregroundStyle(.foreground)
 
                 // location
-                Text(location)
+                Text("\(city), \(state)")
             }
             .font(.caption)
         }
@@ -251,12 +268,14 @@ private struct ListingAmenitiesView: View {
 }
 
 private struct ListingMapView: View {
+    var cameraPosition: MapCameraPosition
+
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text("Where you'll be")
                 .font(.headline)
 
-            Map()
+            Map(initialPosition: cameraPosition)
                 .frame(height: 200)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
         }
