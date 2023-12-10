@@ -20,7 +20,6 @@ struct DestinationSearchView: View {
 
     // state
     @State private var selectedOption: DestinationSearchOptions = .location
-    @State private var destinationText = ""
     @State private var startDate = Date()
     @State private var endDate = Date()
     @State private var numAdults = 1
@@ -29,10 +28,10 @@ struct DestinationSearchView: View {
         VStack {
             // nav controls
             NavigationControlsView(showView: $showView,
-                                   destinationText: $destinationText)
+                                   viewModel: viewModel)
 
             // location search
-            LocationSearchView(destination: $destinationText,
+            LocationSearchView(destination: $viewModel.searchLocation,
                                selectedOption: selectedOption,
                                viewModel: viewModel,
                                showView: $showView)
@@ -65,7 +64,7 @@ struct DestinationSearchView: View {
 
 private struct NavigationControlsView: View {
     @Binding var showView: Bool
-    @Binding var destinationText: String
+    @ObservedObject var viewModel: ExploreViewModel
 
     var body: some View {
         HStack {
@@ -85,10 +84,10 @@ private struct NavigationControlsView: View {
             Spacer()
 
             // clear button
-            if !destinationText.isEmpty {
+            if !viewModel.searchLocation.isEmpty {
                 withAnimation(.snappy) {
                     Button {
-                        destinationText = ""
+                        viewModel.searchLocation = ""
                     } label: {
                         Text("Clear")
                             .fontWeight(.semibold)
@@ -122,7 +121,7 @@ private struct LocationSearchView: View {
                     TextField("Search destinations...", text: $destination)
                         .font(.subheadline)
                         .onSubmit {
-                            viewModel.filterListingByLocation(for: destination)
+                            viewModel.filterListingByLocation()
                             showView.toggle() // close overlay
                         }
                 }

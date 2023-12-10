@@ -9,6 +9,8 @@ import Foundation
 
 class ExploreViewModel: ObservableObject {
     @Published var listings = [Listing]()
+    @Published var searchLocation = ""
+
     private let service: ExploreService
 
     init(with service: ExploreService) {
@@ -27,12 +29,12 @@ class ExploreViewModel: ObservableObject {
         }
     }
 
-    func filterListingByLocation(for location: String) {
-        let normalizedLocation = location.lowercased()
+    func filterListingByLocation() {
+        let normalizedLocation = searchLocation.lowercased()
 
         let filteredListings = listings.filter {
-            $0.city.lowercased().starts(with: normalizedLocation) ||
-                $0.state.lowercased().starts(with: normalizedLocation)
+            normalizedLocation.starts(with: $0.city.lowercased()) ||
+                normalizedLocation.starts(with: $0.state.lowercased())
         }
 
         listings = filteredListings.isEmpty ? listings : filteredListings

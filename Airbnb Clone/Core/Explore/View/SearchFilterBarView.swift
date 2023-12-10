@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SearchFilterBarView: View {
+    @ObservedObject var viewModel: ExploreViewModel
+
     var body: some View {
         HStack {
             HStack(spacing: 12) {
@@ -16,7 +18,7 @@ struct SearchFilterBarView: View {
 
                 // location info
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Where to?")
+                    Text(viewModel.searchLocation.count > 0 ? viewModel.searchLocation : "Where to?")
                         .font(.footnote)
                         .fontWeight(.bold)
 
@@ -52,5 +54,5 @@ struct SearchFilterBarView: View {
 }
 
 #Preview {
-    SearchFilterBarView()
+    SearchFilterBarView(viewModel: ExploreViewModel(with: MockExploreServiceImpl()))
 }
