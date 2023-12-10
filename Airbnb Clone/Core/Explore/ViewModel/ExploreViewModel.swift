@@ -12,6 +12,7 @@ class ExploreViewModel: ObservableObject {
     @Published var searchLocation = ""
 
     private let service: ExploreService
+    private var listingsCopy = [Listing]() // used to maintain the unfiltered items
 
     init(with service: ExploreService) {
         self.service = service // inject the service
@@ -24,6 +25,7 @@ class ExploreViewModel: ObservableObject {
     func fetchListings() async {
         do {
             listings = try await service.fetchListings()
+            listingsCopy = listings
         } catch {
             print("DEBUG: failed to fetch listings with error \(error.localizedDescription)")
         }
@@ -33,10 +35,10 @@ class ExploreViewModel: ObservableObject {
         let normalizedLocation = searchLocation.lowercased()
 
         let filteredListings = listings.filter {
-            normalizedLocation.starts(with: $0.city.lowercased()) ||
-                normalizedLocation.starts(with: $0.state.lowercased())
+            $0.city.lowercased() == normalizedLocation ||
+                $0.state.lowercased() == normalizedLocation
         }
 
-        listings = filteredListings.isEmpty ? listings : filteredListings
+        listings = filteredListings.isEmpty ? listingsCopy : filteredListings
     }
 }

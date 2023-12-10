@@ -88,6 +88,7 @@ private struct NavigationControlsView: View {
                 withAnimation(.snappy) {
                     Button {
                         viewModel.searchLocation = ""
+                        viewModel.filterListingByLocation()
                     } label: {
                         Text("Clear")
                             .fontWeight(.semibold)
