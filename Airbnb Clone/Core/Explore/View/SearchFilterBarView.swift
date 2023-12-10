@@ -18,11 +18,11 @@ struct SearchFilterBarView: View {
 
                 // location info
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(viewModel.searchLocation.count > 0 ? viewModel.searchLocation : "Where to?")
+                    Text(viewModel.searchLocation.isEmpty ? "Where to?" : viewModel.searchLocation)
                         .font(.footnote)
                         .fontWeight(.bold)
 
-                    Text("Anywhere - Any Week - Add Guests")
+                    Text("\(viewModel.searchLocation.isEmpty ? "Anywhere - " : "")Any Week - Add Guests")
                         .font(.caption2)
                         .foregroundStyle(.gray)
                 }
